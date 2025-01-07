@@ -1,0 +1,55 @@
+{
+  "name": "agentmemory",
+  "version": "0.0.1",
+  "description": "LLM-agnostic typescript framework for agent memory",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "scripts": {
+    "build": "bun run build.ts",
+    "test": "bun test --timeout 20000 --coverage",
+    "prepublishOnly": "bun run build && ../node_modules/.bin/tsc"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "swarm",
+    "ai",
+    "LLM",
+    "vercel",
+    "agent",
+    "agents",
+    "orchestration",
+    "multi-agent",
+    "bun"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/k-mistele/swarm#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k-mistele/swarm.git"
+  },
+  "bugs": "https://github.com/k-mistele/swarm/issues",
+  "author": "Kyle Mistele <kmistele@protonmail.com>",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "bun": "latest",
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^1.0.9",
+    "ai": "^4.0.20",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.1"
+  }
+}
