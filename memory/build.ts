@@ -6,6 +6,7 @@ const defaultBuildConfig: BuildConfig = {
     target: 'node',
 }
 
+// @ts-ignore top-level await is perfectly fine with the tsconfig
 await Promise.all([
     Bun.build({
         ...defaultBuildConfig,

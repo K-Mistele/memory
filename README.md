@@ -1,2 +1,2 @@
-# memory
-Memory framework &amp; infrastructure for AI agents
+# Memory 💭💾🧠
+Model-agnostic framework and infrastructure for cross-session agent memories.
