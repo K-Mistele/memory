@@ -1,7 +1,27 @@
 services:
   pgvector:
-    image: pgvector/pgvector:pg17
+    container_name: pgvectorscale
+    image: vectorscale:local
+#    build:
+#      dockerfile: pgvectorscale.Dockerfile
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - '5432:5432'
+
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j
+    ports:
+      - "7474:7474"  # HTTP
+      - "7687:7687"  # Bolt
+    volumes:
+      - neo4j_data:/data
+    environment:
+      - NEO4J_AUTH=neo4j/password
+volumes:
+  neo4j_data:
+  postgres_data:
