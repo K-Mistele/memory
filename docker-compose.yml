@@ -1,9 +1,9 @@
 services:
   pgvector:
     container_name: pgvectorscale
-    image: vectorscale:local
-#    build:
-#      dockerfile: pgvectorscale.Dockerfile
+    #image: vectorscale:local
+    build:
+      dockerfile: pgvectorscale.Dockerfile
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
@@ -22,6 +22,7 @@ services:
       - neo4j_data:/data
     environment:
       - NEO4J_AUTH=neo4j/password
+      - NEO4J_PLUGINS=["apoc"]
 volumes:
   neo4j_data:
   postgres_data:
